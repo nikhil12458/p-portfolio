@@ -19,14 +19,40 @@ export function Hero() {
       </motion.div>
       
       <div className="flex flex-col items-center md:items-start text-center md:text-left">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2"
-        >
-          Palak Singla
-        </motion.h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 flex items-center flex-wrap justify-center md:justify-start">
+          {"Hi, I'm ".split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="inline-block whitespace-pre"
+            >
+              {char}
+            </motion.span>
+          ))}
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1,
+              textShadow: [
+                "0 0 10px rgba(0, 255, 233, 0.4)", 
+                "0 0 25px rgba(0, 255, 233, 0.9)", 
+                "0 0 10px rgba(0, 255, 233, 0.4)"
+              ] 
+            }}
+            transition={{ 
+              opacity: { duration: 0.5, delay: 0.4 },
+              scale: { duration: 0.5, delay: 0.4 },
+              textShadow: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }
+            }}
+            style={{ color: '#00ffe9' }}
+            className="inline-block ml-1"
+          >
+            Palak
+          </motion.span>
+        </h1>
         
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
